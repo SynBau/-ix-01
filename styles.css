@@ -653,7 +653,7 @@ pre {
   width: 100%;
   max-width: 760px;
   height: auto;
-  min-height: 10.25rem;
+  min-height: 12.75rem;
   overflow: visible;
 }
 
@@ -1253,28 +1253,125 @@ pre {
 }
 
 @media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    padding: 0.8rem 1rem;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
   .hero-section {
-    padding-top: 7rem;
+    min-height: auto;
+    padding: 6.25rem 1rem 2rem;
+    align-items: start;
+  }
+
+  .hero-media::after {
+    background:
+      linear-gradient(180deg, rgba(3, 5, 6, 0.38) 0%, rgba(3, 5, 6, 0.72) 42%, #030506 100%),
+      linear-gradient(90deg, rgba(3, 5, 6, 0.84) 0%, rgba(3, 5, 6, 0.38) 100%);
+  }
+
+  .hero-content {
+    padding-bottom: 0;
   }
 
   .section {
-    width: min(100% - 2rem, var(--max));
+    width: min(100% - 1.25rem, var(--max));
+    padding: 4.5rem 0;
   }
 
   h1 {
-    font-size: clamp(3.2rem, 16vw, 5.8rem);
+    font-size: clamp(3.2rem, 20vw, 5rem);
+    line-height: 0.9;
   }
 
   h2 {
-    font-size: clamp(2.35rem, 12vw, 4rem);
+    font-size: clamp(2.05rem, 11vw, 3.2rem);
+    line-height: 0.98;
+  }
+
+  .hero-statement {
+    font-size: clamp(1.22rem, 6vw, 1.75rem);
+    line-height: 1.16;
+  }
+
+  .hero-explain,
+  .manifesto-copy,
+  .section-heading p,
+  .large-copy,
+  .briefing-copy p {
+    font-size: 1rem;
+  }
+
+  .hero-actions,
+  .closing-actions {
+    width: 100%;
+  }
+
+  .hero-actions .button,
+  .closing-actions .button {
+    width: 100%;
+  }
+
+  .hero-footer {
+    position: static;
+    margin-top: 2rem;
+    gap: 0.45rem;
+  }
+
+  .hero-footer span {
+    flex: 1 1 calc(50% - 0.45rem);
+    text-align: center;
+    font-size: 0.62rem;
   }
 
   .film-topbar {
     grid-template-columns: auto 1fr;
+    padding: 0 0.7rem;
+    font-size: 0.64rem;
+  }
+
+  .film-topbar span:nth-child(2) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .film-clock {
     display: none;
+  }
+
+  .agent-film {
+    border-radius: 6px;
+  }
+
+  .film-stage {
+    gap: 0.7rem;
+    padding: 0.7rem;
+  }
+
+  .code-column {
+    height: 22rem;
+    gap: 0.7rem;
+    grid-template-rows: repeat(2, minmax(10.65rem, 1fr));
+  }
+
+  .console-label {
+    padding: 0.62rem 0.75rem;
+    font-size: 0.62rem;
+  }
+
+  .agent-console pre {
+    padding: 0.75rem;
+    font-size: 0.62rem;
+    line-height: 1.42;
   }
 
   .value-grid {
@@ -1284,7 +1381,9 @@ pre {
   .process-visual {
     grid-template-columns: 1fr;
     height: auto;
-    min-height: 38rem;
+    min-height: 0;
+    gap: 0.65rem;
+    padding: 0.7rem;
   }
 
   .seller-node,
@@ -1298,7 +1397,73 @@ pre {
 
   .negotiation-path {
     grid-template-columns: 1fr 1fr;
-    min-height: 8rem;
+    min-height: 12.5rem;
+  }
+
+  .intent-node {
+    padding: 0.75rem;
+  }
+
+  .intent-node strong {
+    font-size: 1.35rem;
+  }
+
+  .intent-node small {
+    font-size: 0.72rem;
+  }
+
+  .exchange-hub {
+    min-height: 3.7rem;
+    padding: 0.72rem 0.8rem;
+  }
+
+  .hub-label {
+    font-size: 0.82rem;
+  }
+
+  .hub-subline {
+    font-size: 0.66rem;
+  }
+
+  .negotiation-svg {
+    min-height: 12.75rem;
+  }
+
+  .visual-briefing {
+    padding: 0.85rem;
+  }
+
+  .visual-briefing strong {
+    font-size: clamp(2.1rem, 14vw, 3.3rem);
+  }
+
+  .visual-briefing p {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .film-bottom {
+    padding: 0.7rem;
+  }
+
+  .governance-strip {
+    gap: 0.4rem;
+  }
+
+  .check {
+    flex: 1 1 calc(50% - 0.4rem);
+    padding: 0.42rem 0.45rem;
+    text-align: center;
+    font-size: 0.62rem;
+  }
+
+  .briefing-card div {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .briefing-card strong {
+    font-size: 1.2rem;
   }
 
   .approval-grid,
@@ -1309,5 +1474,81 @@ pre {
   .approval-trace,
   .approval-car {
     grid-column: auto;
+  }
+
+  .approval-screen {
+    min-height: 0;
+    padding: 0.75rem;
+  }
+
+  .approval-topline {
+    display: grid;
+  }
+
+  .approval-price strong {
+    font-size: clamp(2rem, 13vw, 3rem);
+  }
+
+  .approval-car {
+    min-height: 9rem;
+  }
+
+  .car-silhouette {
+    height: 5.5rem;
+  }
+
+  .approval-trace li {
+    min-height: auto;
+  }
+
+  .endpoint-list code {
+    overflow-wrap: anywhere;
+  }
+
+  .code-block {
+    min-height: 20rem;
+    max-height: 32rem;
+    font-size: 0.68rem;
+  }
+
+  .closing-section {
+    min-height: 58svh;
+    padding: 4.5rem 1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .section {
+    width: min(100% - 1rem, var(--max));
+  }
+
+  .button {
+    min-height: 2.8rem;
+    padding: 0.78rem 0.9rem;
+    font-size: 0.84rem;
+  }
+
+  .journey-column h3 {
+    font-size: 1.22rem;
+  }
+
+  .film-stage {
+    padding: 0.55rem;
+  }
+
+  .process-visual {
+    padding: 0.55rem;
+  }
+
+  .negotiation-svg {
+    min-height: 11.75rem;
+  }
+
+  .visual-briefing strong {
+    font-size: clamp(1.9rem, 13vw, 2.8rem);
+  }
+
+  .check {
+    flex-basis: 100%;
   }
 }

@@ -47,7 +47,7 @@ const visualPrice = document.querySelector("#visualPrice");
 const visualNarrative = document.querySelector("#visualNarrative");
 const offerNodes = [...document.querySelectorAll("[data-offer-step]")];
 
-const stageMs = 1150;
+const stageMs = 1400;
 const holdMs = 1050;
 const loopMs = stageMs * 5 + holdMs;
 let startedAt = performance.now() - 450;
@@ -110,7 +110,7 @@ function renderFilm(now) {
   const progress = Math.min(1, elapsed / (loopMs - holdMs));
   const stageIndex = Math.min(negotiationStages.length - 1, Math.floor(elapsed / stageMs));
   const stageLocal = Math.min(1, (elapsed - stageIndex * stageMs) / stageMs);
-  const moveAmount = easeOutCubic(Math.min(1, stageLocal / 0.42));
+  const moveAmount = easeOutCubic(Math.min(1, stageLocal / 0.2));
   sellerCode.textContent = reveal(sellerScript, progress);
   buyerCode.textContent = reveal(buyerScript, Math.max(0, progress - 0.03));
 
@@ -125,9 +125,13 @@ function renderFilm(now) {
     const homeY = Number(node.dataset.homeY);
     const restingX = homeX + 21;
     const restingY = homeY + 10;
-    const scale = isActive ? mix(0.72, 1.75, moveAmount) : 0.72;
-    const x = isActive ? mix(restingX, 249, moveAmount) : restingX;
-    const y = isActive ? mix(restingY, 18, moveAmount) : restingY;
+    const mobileOffer = window.matchMedia("(max-width: 640px)").matches;
+    const activeScale = mobileOffer ? 5.0 : 2.2;
+    const activeX = (760 - 150 * activeScale) / 2;
+    const activeY = mobileOffer ? 0 : 28;
+    const scale = isActive ? mix(0.72, activeScale, moveAmount) : 0.72;
+    const x = isActive ? mix(restingX, activeX, moveAmount) : restingX;
+    const y = isActive ? mix(restingY, activeY, moveAmount) : restingY;
 
     node.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${scale.toFixed(3)})`);
     node.classList.toggle("is-active", isActive);
