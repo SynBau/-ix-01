@@ -739,6 +739,10 @@ pre {
 .visual-briefing {
   grid-column: 1 / -1;
   grid-row: 4;
+  display: grid;
+  grid-template-rows: 0.9rem 3.8rem minmax(2.9rem, auto);
+  gap: 0.45rem;
+  min-height: 8.9rem;
   padding: 1rem;
   border-color: rgba(140, 255, 189, 0.28);
   background: linear-gradient(180deg, rgba(140, 255, 189, 0.09), rgba(0, 0, 0, 0.56));
@@ -746,14 +750,12 @@ pre {
 
 .visual-briefing strong {
   display: block;
-  margin-top: 0.35rem;
   color: var(--green);
   font-size: clamp(2.1rem, 5vw, 4rem);
   line-height: 0.9;
 }
 
 .visual-briefing p {
-  margin-top: 0.6rem;
   color: var(--soft);
   font-size: 0.95rem;
 }
@@ -1430,16 +1432,21 @@ pre {
   }
 
   .visual-briefing {
+    grid-template-rows: 0.85rem 3.8rem 3.7rem;
+    min-height: 10.1rem;
     padding: 0.85rem;
   }
 
   .visual-briefing strong {
-    font-size: clamp(2.1rem, 14vw, 3.3rem);
+    font-size: clamp(2.45rem, 13vw, 3.15rem);
+    line-height: 0.95;
+    white-space: nowrap;
   }
 
   .visual-briefing p {
     font-size: 0.9rem;
     line-height: 1.35;
+    overflow: hidden;
   }
 
   .film-bottom {
@@ -1545,7 +1552,7 @@ pre {
   }
 
   .visual-briefing strong {
-    font-size: clamp(1.9rem, 13vw, 2.8rem);
+    font-size: clamp(2.3rem, 12.5vw, 2.95rem);
   }
 
   .check {
